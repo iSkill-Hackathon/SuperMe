@@ -17,9 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ie.mylifesolutions.superme.contact.ContactFragment;
+import ie.mylifesolutions.superme.info.InfoFragment;
 import ie.mylifesolutions.superme.menu.MenuDrawerItem;
 import ie.mylifesolutions.superme.menu.DrawerListAdapter;
 import ie.mylifesolutions.superme.story.StoryMenuFragment;
+import ie.mylifesolutions.superme.tools.AssertiveToolsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
         switch (selectedText){
             case "Contact" :
                     changeFragment(ContactFragment.newInstance());
+                break;
+            case "Assertive Tools" :
+                    changeFragment(AssertiveToolsFragment.newInstance());
+                break;
+            case "Info" :
+                    changeFragment(InfoFragment.newInstance());
+                break;
             case "Stories":
                     changeFragment(StoryMenuFragment.newInstance());
                 break;
