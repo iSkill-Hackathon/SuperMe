@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true">
+    <item android:duration="500"
+        android:drawable="@drawable/sc_an_ice_mountain"/>
+    <item android:duration="500"
+        android:drawable="@drawable/sc_an_ice_mountain_popup_01"/>
+    <item android:duration="500"
+        android:drawable="@drawable/sc_an_ice_mountain_popup_02"/>
+</animation-list>

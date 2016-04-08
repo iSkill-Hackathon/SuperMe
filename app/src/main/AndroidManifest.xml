@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".info.InfoFragment"></activity>
+        <activity android:name=".info.InfoFragment" />
+        <activity android:name=".story.StoryMenu" />
+        <activity android:name=".story.Stories"></activity>
     </application>
 
 </manifest>
