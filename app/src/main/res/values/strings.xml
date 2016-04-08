@@ -2,4 +2,19 @@
     <string name="app_name">SuperMe</string>
 
     <string name="hello_world">Hello World!</string>
+
+    <array name="menu_items">
+        <item>Home</item>
+        <item>Stories</item>
+        <item>Assertive Tools</item>
+        <item>Contact</item>
+        <item>Info</item>
+        <item>Parents</item>
+    </array>
+
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
