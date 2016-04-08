@@ -17,15 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ie.mylifesolutions.superme.contact.ContactFragment;
-import ie.mylifesolutions.superme.info.InfoFragment;
 import ie.mylifesolutions.superme.menu.MenuDrawerItem;
 import ie.mylifesolutions.superme.menu.DrawerListAdapter;
-import ie.mylifesolutions.superme.tools.AssertiveToolsFragment;
+import ie.mylifesolutions.superme.story.StoryMenuFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "mainactivity";
-    private List<MenuDrawerItem> mMenuItems = new ArrayList<>();
+    private List<MenuDrawerItem> mMenuItems = new ArrayList<MenuDrawerItem>();
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -35,10 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(getSupportActionBar() != null){
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String[] menuItems = getResources().getStringArray(R.array.menu_items);
 
@@ -86,12 +82,8 @@ public class MainActivity extends AppCompatActivity {
         switch (selectedText){
             case "Contact" :
                     changeFragment(ContactFragment.newInstance());
-                break;
-            case "Assertive Tools" :
-                    changeFragment(AssertiveToolsFragment.newInstance());
-                break;
-            case "Info" :
-                    changeFragment(InfoFragment.newInstance());
+            case "Stories":
+                    changeFragment(StoryMenuFragment.newInstance());
                 break;
         }
 
@@ -106,7 +98,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
