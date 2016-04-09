@@ -37,10 +37,10 @@ public class StoryMenuFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_story_menu, container, false);
-        buttons.add((ImageButton) view.findViewById(R.id.viral_button));
-        buttons.add((ImageButton) view.findViewById(R.id.scorpies_button));
-        buttons.add((ImageButton) view.findViewById(R.id.bull_basher_button));
-        buttons.add((ImageButton) view.findViewById(R.id.mad_mocker_button));
+        buttons.add((ImageButton) view.findViewById(R.id.viral_story_button));
+        buttons.add((ImageButton) view.findViewById(R.id.scorpies_story_button));
+        buttons.add((ImageButton) view.findViewById(R.id.bull_basher_story_button));
+        buttons.add((ImageButton) view.findViewById(R.id.mad_mocker_story_button));
 
         for(ImageButton b: buttons){
             b.setOnClickListener(this);
@@ -57,16 +57,16 @@ public class StoryMenuFragment extends Fragment implements View.OnClickListener{
        
 
         switch (view.getId()){
-            case R.id.viral_button:   editor.putString(SELECTED_STORY, "viral");
+            case R.id.viral_story_button:   editor.putString(SELECTED_STORY, "viral");
                 editor.commit();
                 break;
-            case R.id.scorpies_button:    editor.putString(SELECTED_STORY, "scorpies");
+            case R.id.scorpies_story_button:    editor.putString(SELECTED_STORY, "scorpies");
                 editor.commit();
                 break;
-            case R.id.bull_basher_button:    editor.putString(SELECTED_STORY, "bull_basher");
+            case R.id.bull_basher_story_button:    editor.putString(SELECTED_STORY, "bull_basher");
                 editor.commit();
                 break;
-            case R.id.mad_mocker_button:    editor.putString(SELECTED_STORY, "mad_mocker");
+            case R.id.mad_mocker_story_button:    editor.putString(SELECTED_STORY, "mad_mocker");
                 editor.commit();
                 break;
         }
