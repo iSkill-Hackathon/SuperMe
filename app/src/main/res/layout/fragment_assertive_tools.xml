@@ -10,10 +10,9 @@
 
     tools:context="ie.mylifesolutions.superme.tools.AssertiveToolsFragment">
 
-    <!--Temporary image just for testing-->
     <ImageView
 
-        android:src="@drawable/contact_page_envelope"
+        android:src="@drawable/logo_super_tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
