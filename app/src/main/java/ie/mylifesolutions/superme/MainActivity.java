@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ie.mylifesolutions.superme.contact.ContactFragment;
+import ie.mylifesolutions.superme.home.HomeFragment;
 import ie.mylifesolutions.superme.info.InfoFragment;
 import ie.mylifesolutions.superme.menu.MenuDrawerItem;
 import ie.mylifesolutions.superme.menu.DrawerListAdapter;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private RelativeLayout mDrawerPane;
 
+    private int[] icon_ids = {R.drawable.icon_home, R.drawable.icon_stories, R.drawable.icon_assertive_tools, R.drawable.icon_contact, R.drawable.icon_info, R.drawable.icon_parents};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         }
         String[] menuItems = getResources().getStringArray(R.array.menu_items);
 
-        for(String menuItem : menuItems){
-            mMenuItems.add(new MenuDrawerItem(menuItem, 0));
+        for(int i = 0; i < menuItems.length; ++i){
+            mMenuItems.add(new MenuDrawerItem(menuItems[i], icon_ids[i]));
         }
 
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
@@ -84,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
         setTitle(selectedText);
 
         switch (selectedText){
+            case "Home" :
+                    changeFragment(HomeFragment.newInstance());
+                break;
             case "Contact" :
                     changeFragment(ContactFragment.newInstance());
                 break;
