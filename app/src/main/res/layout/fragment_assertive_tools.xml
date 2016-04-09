@@ -24,11 +24,13 @@
 
         <ImageView
             android:src="@drawable/tool_slider"
+            android:id="@+id/tool_slider"
             android:layout_width="120dp"
             android:layout_margin="10dp"
             android:layout_height="120dp" />
         <ImageView
             android:src="@drawable/tool_stop_shield"
+            android:id="@+id/tool_stop_shield"
             android:layout_width="120dp"
             android:layout_margin="10dp"
             android:layout_height="120dp" />
@@ -42,6 +44,7 @@
 
         <ImageView
             android:src="@drawable/tool_broken_record"
+            android:id="@+id/tool_broken_record"
             android:layout_width="120dp"
             android:layout_margin="10dp"
             android:layout_height="120dp" />
@@ -55,11 +58,13 @@
 
         <ImageView
             android:src="@drawable/tool_funnies"
+            android:id="@+id/tool_funnies"
             android:layout_margin="10dp"
             android:layout_width="120dp"
             android:layout_height="120dp" />
         <ImageView
             android:src="@drawable/tool_eye_contact"
+            android:id="@+id/tool_eye_contact"
             android:layout_margin="10dp"
             android:layout_width="120dp"
             android:layout_height="120dp" />

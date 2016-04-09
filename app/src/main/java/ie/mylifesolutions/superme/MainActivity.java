@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.tool_eye_contact);
         }
         String[] menuItems = getResources().getStringArray(R.array.menu_items);
 
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
                 invalidateOptionsMenu();
             }
         };
+
+        changeFragment(HomeFragment.newInstance());
 
     }
 
