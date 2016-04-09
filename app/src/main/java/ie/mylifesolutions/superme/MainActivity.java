@@ -20,13 +20,14 @@ import ie.mylifesolutions.superme.contact.ContactFragment;
 import ie.mylifesolutions.superme.info.InfoFragment;
 import ie.mylifesolutions.superme.menu.MenuDrawerItem;
 import ie.mylifesolutions.superme.menu.DrawerListAdapter;
+import ie.mylifesolutions.superme.parents.ParentsFragment;
 import ie.mylifesolutions.superme.story.StoryMenuFragment;
 import ie.mylifesolutions.superme.tools.AssertiveToolsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "mainactivity";
-    private List<MenuDrawerItem> mMenuItems = new ArrayList<MenuDrawerItem>();
+    private List<MenuDrawerItem> mMenuItems = new ArrayList<>();
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -36,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         String[] menuItems = getResources().getStringArray(R.array.menu_items);
 
         for(String menuItem : menuItems){
@@ -94,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
             case "Stories":
                     changeFragment(StoryMenuFragment.newInstance());
                 break;
+            case "Parents":
+                    changeFragment(ParentsFragment.newInstance());
+                break;
         }
 
         // Close the drawer
@@ -108,11 +113,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
 
