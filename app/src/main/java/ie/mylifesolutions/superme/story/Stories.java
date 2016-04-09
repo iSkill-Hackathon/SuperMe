@@ -1,5 +1,6 @@
 package ie.mylifesolutions.superme.story;
 
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -17,31 +18,41 @@ import ie.mylifesolutions.superme.R;
 public class Stories extends AppCompatActivity {
     private SharedPreferences sharedpreferences;
     private final String SELECTED_STORY = "selected_story";
-    private final String TAG ="stories_fragment";
-    private int[] viralImages = {R.drawable.viral_slide_1a,R.drawable.viral_slide_2a,R.drawable.viral_slide_3a,R.drawable.viral_slide_4a,R.drawable.viral_slide_5a,R.drawable.viral_slide_6a};
-    private int[] scorpieImages = {R.drawable.scorpie_slide_1a,R.drawable.scorpie_slide_2a,R.drawable.scorpie_slide_3a,R.drawable.scorpie_slide_4a,R.drawable.scorpie_slide_5a, R.drawable.scorpie_slide_6a};
-    private int[] bullBasherImages = {R.drawable.bull_basher_slide_1,R.drawable.bull_basher_slide_2a,R.drawable.bull_basher_slide_3,R.drawable.bull_basher_slide_4a,R.drawable.bull_basher_slide_5a,R.drawable.bull_basher_slide_6};
-    private int[] madMockerImages = {R.drawable.mad_mocker_slide_1a,R.drawable.mad_mocker_slide_2a,R.drawable.mad_mocker_slide_3a,R.drawable.mad_mocker_slide_4a,R.drawable.mad_mocker_slide_5a,R.drawable.mad_mocker_slide_6a};
+    private final String TAG ="stories";
+    private int[] viralImages = {R.drawable.v_slide_1,R.drawable.v_slide_2,R.drawable.v_slide_3,R.drawable.v_slide_4,R.drawable.v_slide_5,R.drawable.v_slide_6};
+    private int[] scorpieImages = {R.drawable.sc_slide_1,R.drawable.sc_slide_2,R.drawable.sc_slide_3,R.drawable.sc_slide_4,R.drawable.sc_slide_5, R.drawable.sc_slide_6};
+    private int[] bullBasherImages = {R.drawable.bb_slide_1,R.drawable.bb_slide_2,R.drawable.bb_slide_3,R.drawable.bb_slide_4,R.drawable.bb_slide_5,R.drawable.bb_slide_6};
+    private int[] madMockerImages = {R.drawable.mm_slide_1,R.drawable.mm_slide_2,R.drawable.mm_slide_3,R.drawable.mm_slide_4,R.drawable.mm_slide_5,R.drawable.mm_slide_6};
     private int[] chosenStoryImages;
-    AnimationDrawable animationDrawable;
-    String chosenStory = "";
-    private int count = 0;
+    private AnimationDrawable animationDrawable;
+    private String chosenStory = "";
+    private int slideCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stories);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
         getPreferences();
         setupAnimations();
     }
 
+    /**
+     * Get the string of chosen story.
+     */
     private void getPreferences(){
         sharedpreferences = getSharedPreferences(SELECTED_STORY, Context.MODE_PRIVATE);
         chosenStory = sharedpreferences.getString(SELECTED_STORY, null);
         Log.i(TAG, "Chosen Story = " + chosenStory);
     }
 
+    /**
+     * Assign array of image ids to chosenStoryImages[] depending on which story the user has chosen
+     */
     private void setupAnimations(){
         ImageView storyImage = (ImageView) findViewById(R.id.storyView);
         switch(chosenStory){
@@ -54,10 +65,15 @@ public class Stories extends AppCompatActivity {
 
         }
 
-        storyImage.setBackgroundResource(chosenStoryImages[count]);
+        storyImage.setBackgroundResource(chosenStoryImages[slideCount]);
         animationDrawable = (AnimationDrawable) storyImage.getBackground();
     }
 
+    /**
+     * Start animation as soon as the user taps the screen
+     * @param event
+     * @return
+     */
     public boolean onTouchEvent(MotionEvent event){
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             animationDrawable.start();
@@ -66,36 +82,42 @@ public class Stories extends AppCompatActivity {
         return super.onTouchEvent(event);
     }
 
+    /**
+     * Switch to the next slide when user clicks the button
+     * @param view
+     */
     public void onClickForward(View view){
         //Log.i("Click", "Button Work");
 
-        if(count < chosenStoryImages.length - 1){
-            count++;
-            Log.i(TAG,"Up " + count);
+        if(slideCount < chosenStoryImages.length - 1){
+            slideCount++;
+            //Log.i(TAG,"Up " + slideCount);
+
             ImageView storyImage = (ImageView) findViewById(R.id.storyView);
-            storyImage.setBackgroundResource(chosenStoryImages[count]);
+            storyImage.setBackgroundResource(chosenStoryImages[slideCount]);
             animationDrawable = (AnimationDrawable) storyImage.getBackground();
             animationDrawable.start();
+        } else {
+            finish();
         }
-
     }
 
+    /**
+     * Switch to the previous slide when the user clicks the button
+     * @param view
+     */
     public void onClickBack(View view){
         //Log.i("Click", "Button Work");
-        if(count > 0){
-            count--;
-            Log.i(TAG,"Down " + count);
+        if(slideCount > 0){
+            slideCount--;
+            //Log.i(TAG,"Down " + slideCount);
 
             ImageView storyImage = (ImageView) findViewById(R.id.storyView);
-            storyImage.setBackgroundResource(chosenStoryImages[count]);
+            storyImage.setBackgroundResource(chosenStoryImages[slideCount]);
             animationDrawable = (AnimationDrawable) storyImage.getBackground();
             animationDrawable.start();
+        } else {
+            finish();
         }
-
-
     }
-
-
-
-
 }
