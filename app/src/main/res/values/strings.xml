@@ -17,4 +17,19 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="info_screen_text_1">\"SUPER ME\" has been developed to help you deal with bullying. \nYou don\'t deserve to be bullied.</string>
+    <string name="info_screen_text_2">Bullying is when someone is hurting you, over time and on purpose.</string>
+    <string name="info_screen_text_3">Remember the \"SUPER ME\" tools &amp; some golden rules:</string>
+    <string name="info_screen_text_4">STAND TALL, HAVE GOOD EYE CONTACT AND NEVER HURT THE PERSON BACK.</string>
+    <string name="info_screen_text_5">Also remember that you must tell an adult.\nKeep telling until someone helps.\nBullying is not OK</string>
+    <string name="info_screen_text_6">Last year 14,632 children in Ireland looked for help to deal with bullying. You are not alone.</string>
+
+    <string name="parents_screen_text_1">\"SuperMe\" against bullying.</string>
+    <string name="parents_screen_text_2">SuperMe and SuperMiss are truly self-empowered characters designed to help show you and your children how to deal with different situations of bullying.\nThe stories are taken from real life situations where children have needed to use new skills to stop bullying.</string>
+    <string name="parents_screen_text_3">SuperMe is a fun way to learn these skills in real life situations but you as parents, have a critical role in practicing these skills with your children. Try and practice these skills with our children often</string>
+    <string name="parents_screen_text_4">The skills or SuperTools you see throughout are taken from the acclaimed ZAP programme, run by Kid-scape UK. The tools when used correctly, can really help children deal with difficult situations.\nThis app is used as a guide.</string>
+    <string name="parents_screen_text_5">For more information and further reading please visit\nwww.mylifesolutions.ie\nOr\nwww.kidscape.org.uk</string>
+
+    <string name="button_credits_text">Credits</string>
+
 </resources>
