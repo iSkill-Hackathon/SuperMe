@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true">
     <item android:duration="650"
-        android:drawable="@drawable/v_credits"/>
+        android:drawable="@drawable/v_credits_01"/>
     <item android:duration="500"
-        android:drawable="@drawable/v_credits_popup"/>
+        android:drawable="@drawable/v_credits_02"/>
+    <item android:duration="500"
+        android:drawable="@drawable/v_credits_03"/>
+    <item android:duration="500"
+        android:drawable="@drawable/v_credits_04"/>
+    <item android:duration="500"
+        android:drawable="@drawable/v_credits_05"/>
 </animation-list>

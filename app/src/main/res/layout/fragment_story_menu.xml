@@ -24,35 +24,6 @@
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:orientation="horizontal">
 
-       <!-- <ImageButton
-            android:id="@+id/viral_button"
-            android:src="@drawable/viral_character"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            />
-
-        <ImageButton
-            android:id="@+id/scorpies_button"
-            android:src="@drawable/scorpies_character"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-           />
-
-        <ImageButton
-            android:id="@+id/bull_basher_button"
-            android:src="@drawable/bull_basher_character"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-         />
-
-        <ImageButton
-            android:id="@+id/mad_mocker_button"
-            android:src="@drawable/mad_mocker_character"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            /> -->
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

@@ -67,6 +67,7 @@ public class Stories extends AppCompatActivity {
 
         storyImage.setBackgroundResource(chosenStoryImages[slideCount]);
         animationDrawable = (AnimationDrawable) storyImage.getBackground();
+        animationDrawable.start();
     }
 
     /**
