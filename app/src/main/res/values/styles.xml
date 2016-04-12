@@ -8,4 +8,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ViralTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorViral</item>
+        <item name="colorPrimaryDark">@color/colorViralDark</item>
+    </style>
+
+    <style name="ScorpiesTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorScorpies</item>
+        <item name="colorPrimaryDark">@color/colorScorpiesDark</item>
+    </style>
+
+    <style name="BullBasherTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorBullBasher</item>
+        <item name="colorPrimaryDark">@color/colorBullBasherDark</item>
+    </style>
+
+    <style name="MadMockerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorMadMocker</item>
+        <item name="colorPrimaryDark">@color/colorMadMockerDark</item>
+    </style>
+
+
 </resources>

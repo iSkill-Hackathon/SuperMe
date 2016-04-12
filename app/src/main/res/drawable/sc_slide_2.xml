@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true">
     <item android:duration="750"
-        android:drawable="@drawable/sc_why_are_they_so_cruel"/>
+        android:drawable="@drawable/sc_why_are_they_so_cruel_01"/>
     <item android:duration="500"
-        android:drawable="@drawable/sc_why_are_they_so_cruel_popup"/>o
+        android:drawable="@drawable/sc_why_are_they_so_cruel_02"/>o
 </animation-list>

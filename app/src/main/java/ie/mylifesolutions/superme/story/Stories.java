@@ -31,14 +31,14 @@ public class Stories extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getPreferences();
+        setupStory();
+
         setContentView(R.layout.activity_stories);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
 
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
-        getPreferences();
-        setupAnimations();
+        initializeAnimation();
     }
 
     /**
@@ -52,19 +52,29 @@ public class Stories extends AppCompatActivity {
 
     /**
      * Assign array of image ids to chosenStoryImages[] depending on which story the user has chosen
+     * also set activity theme to specific story.
      */
-    private void setupAnimations(){
-        ImageView storyImage = (ImageView) findViewById(R.id.storyView);
+    private void setupStory(){
+
         switch(chosenStory){
-            case "viral": chosenStoryImages = viralImages; break;
-            case "scorpies": chosenStoryImages = scorpieImages; break;
-            case "bull_basher": chosenStoryImages = bullBasherImages; break;
-            case "mad_mocker": chosenStoryImages = madMockerImages; break;
+            case "viral":       chosenStoryImages = viralImages;
+                                setTheme(R.style.ViralTheme); break;
+            case "scorpies":    chosenStoryImages = scorpieImages;
+                                setTheme(R.style.ScorpiesTheme);break;
+            case "bull_basher": chosenStoryImages = bullBasherImages;
+                                setTheme(R.style.BullBasherTheme);break;
+            case "mad_mocker":  chosenStoryImages = madMockerImages;
+                                setTheme(R.style.MadMockerTheme);break;
             default:
                 Toast.makeText(this,"Error: No Story Chosen",Toast.LENGTH_SHORT).show();
 
         }
 
+
+    }
+
+    private void initializeAnimation(){
+        ImageView storyImage = (ImageView) findViewById(R.id.storyView);
         storyImage.setBackgroundResource(chosenStoryImages[slideCount]);
         animationDrawable = (AnimationDrawable) storyImage.getBackground();
         animationDrawable.start();
