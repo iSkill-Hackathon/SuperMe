@@ -1,73 +1,78 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:columnCount="3"
-    android:rowCount="2"
-    android:gravity="center"
-    android:background="@drawable/splatter_background"
-
-    tools:context="ie.mylifesolutions.superme.tools.AssertiveToolsFragment">
-
-    <ImageView
-
-        android:src="@drawable/logo_super_tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:columnCount="3"
+        android:rowCount="2"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:background="@drawable/splatter_background"
+
+        tools:context="ie.mylifesolutions.superme.tools.AssertiveToolsFragment">
 
         <ImageView
-            android:src="@drawable/tool_slider"
-            android:id="@+id/tool_slider"
-            android:layout_width="120dp"
-            android:layout_margin="10dp"
-            android:layout_height="120dp" />
-        <ImageView
-            android:src="@drawable/tool_stop_shield"
-            android:id="@+id/tool_stop_shield"
-            android:layout_width="120dp"
-            android:layout_margin="10dp"
-            android:layout_height="120dp" />
+
+            android:src="@drawable/logo_super_tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:src="@drawable/tool_slider"
+                android:id="@+id/tool_slider"
+                android:layout_width="120dp"
+                android:layout_margin="10dp"
+                android:layout_height="120dp" />
+            <ImageView
+                android:src="@drawable/tool_stop_shield"
+                android:id="@+id/tool_stop_shield"
+                android:layout_width="120dp"
+                android:layout_margin="10dp"
+                android:layout_height="120dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:src="@drawable/tool_broken_record"
+                android:id="@+id/tool_broken_record"
+                android:layout_width="120dp"
+                android:layout_margin="10dp"
+                android:layout_height="120dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:src="@drawable/tool_funnies"
+                android:id="@+id/tool_funnies"
+                android:layout_margin="10dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp" />
+            <ImageView
+                android:src="@drawable/tool_eye_contact"
+                android:id="@+id/tool_eye_contact"
+                android:layout_margin="10dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp" />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:src="@drawable/tool_broken_record"
-            android:id="@+id/tool_broken_record"
-            android:layout_width="120dp"
-            android:layout_margin="10dp"
-            android:layout_height="120dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:src="@drawable/tool_funnies"
-            android:id="@+id/tool_funnies"
-            android:layout_margin="10dp"
-            android:layout_width="120dp"
-            android:layout_height="120dp" />
-        <ImageView
-            android:src="@drawable/tool_eye_contact"
-            android:id="@+id/tool_eye_contact"
-            android:layout_margin="10dp"
-            android:layout_width="120dp"
-            android:layout_height="120dp" />
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>
