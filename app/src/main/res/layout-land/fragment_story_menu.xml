@@ -7,20 +7,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:gravity="center|top"
+    android:background="@drawable/splatter_background_land"
     tools:context=".StoryActivity"
     android:baselineAligned="false"
     android:nestedScrollingEnabled="false">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo_super_stories"/>
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:src="@drawable/logo_super_stories_land"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:orientation="horizontal">
 
@@ -29,6 +32,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="1">
+
             <ImageButton
                 android:id="@+id/viral_story_button"
                 android:layout_width="match_parent"
@@ -39,12 +43,11 @@
 
             <ImageButton
                 android:id="@+id/bull_basher_story_button"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/bull_basher_character"
                 android:layout_weight="1"
                 android:layout_gravity="center"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -61,19 +64,13 @@
                 android:layout_weight="1"
                 android:layout_gravity="center" />
 
-
-
             <ImageButton
                 android:id="@+id/mad_mocker_story_button"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/mad_mocker_character"
                 android:layout_weight="1"
                 android:layout_gravity="center"/>
-
-
         </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>
