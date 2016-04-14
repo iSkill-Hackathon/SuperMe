@@ -6,8 +6,12 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,9 +78,9 @@ public class ParentsFragment extends Fragment {
                 int start = text.indexOf(phrase);
                 int end = start + phrase.length();
                 if(start != -1){
-                    textSpan.setSpan(new ForegroundColorSpan(textColorStandOut), start, end, 0);
-                    textSpan.setSpan(new ShadowSpan(shadowRadius, shadowDX, shadowDY, shadowColorDark), start, end, 0);
-                    textSpan.setSpan(new RelativeSizeSpan(textSizeIncrease), start, end, 0);
+                        textSpan.setSpan(new ShadowSpan(shadowRadius, shadowDX, shadowDY, shadowColorDark), start, end, 0);
+                        textSpan.setSpan(new RelativeSizeSpan(textSizeIncrease), start, end, 0);
+                        textSpan.setSpan(new ForegroundColorSpan(textColorStandOut), start, end, 0);
                 }
             }
 
@@ -84,6 +88,26 @@ public class ParentsFragment extends Fragment {
 
         targetView.setText(textSpan, TextView.BufferType.SPANNABLE);
         targetView.setTypeface(type);
+
     }
 
 }
+
+/*
+    Code for testing the damn clickable link:
+    Gave up for now but will return!
+
+//                    if(phrase.contains("www.")){
+//                        textSpan.setSpan(new ClickableSpan() {
+//                            @Override
+//                            public void onClick(View widget) {
+//                                Log.d("TEXT CLICKED", ((TextView) widget).getText().toString());
+//                            }
+//                        }, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//                        Log.d("TEXT", "Start : " + start + ", End : " + end);
+//                    }else{
+
+//                    }
+
+//        targetView.setMovementMethod(LinkMovementMethod.getInstance());
+ */

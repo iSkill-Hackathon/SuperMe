@@ -13,29 +13,21 @@
 
     <!-- The navigation drawer -->
     <RelativeLayout
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:background="@color/colorMenuColor"
         android:id="@+id/drawerPane"
         android:layout_gravity="start">
 
-        <!-- Profile Box -->
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@color/material_blue_grey_800"
-            android:padding="8dp" >
-
-
-        </RelativeLayout>
 
         <!-- List of Actions (pages) -->
         <ListView
             android:id="@+id/drawerList"
             android:layout_width="280dp"
             android:layout_height="match_parent"
-            android:choiceMode="singleChoice"
-            android:background="#ffffffff" />
+            android:dividerHeight="2dp"
+            android:choiceMode="singleChoice" />
 
     </RelativeLayout>
 
