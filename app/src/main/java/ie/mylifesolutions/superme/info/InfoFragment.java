@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.util.Log;
