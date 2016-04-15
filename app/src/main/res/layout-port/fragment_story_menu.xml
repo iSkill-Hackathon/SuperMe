@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:gravity="center|top"
     android:background="@drawable/splatter_background"
-    tools:context=".StoryActivity"
+    tools:context=".story.StoryMenuFragment"
     android:baselineAligned="false"
     android:nestedScrollingEnabled="false">
 
