@@ -11,6 +11,6 @@
     <color name="colorBullBasherDark">#C50000</color>
     <color name="colorMadMocker">#FF8500</color>
     <color name="colorMadMockerDark">#CE6D03</color>
-    <color name="transparent">#00000000</color>
+    <color name="colorMenuColor">#c0d676</color>
 
 </resources>

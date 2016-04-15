@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ie.mylifesolutions.superme.contact.ContactFragment;
+import ie.mylifesolutions.superme.credits.CreditsFragment;
 import ie.mylifesolutions.superme.home.HomeFragment;
 import ie.mylifesolutions.superme.info.InfoFragment;
 import ie.mylifesolutions.superme.menu.MenuDrawerItem;
@@ -80,40 +81,63 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        changeFragment(HomeFragment.newInstance());
+        /*
+        Check to see if there was already a fragment displayed and redisplay it if so,
+        this simple solves the issue of orientation changes causing the app to reset to home screen.
+         */
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainContent);
+        if(fragment == null){
+            changeFragment(HomeFragment.newInstance());
+        }else{
+            changeFragment(fragment);
+        }
 
     }
-
+    /*
+    Method to change to the fragment that the user selected from the menu
+     */
     private void selectItemFromDrawer(int position) {
         mDrawerList.setItemChecked(position, true);
         String selectedText = mMenuItems.get(position).getTitle();
         setTitle(selectedText);
 
-        switch (selectedText){
-            case "Home" :
-                    changeFragment(HomeFragment.newInstance());
-                break;
-            case "Contact" :
-                    changeFragment(ContactFragment.newInstance());
-                break;
-            case "Assertive Tools" :
-                    changeFragment(AssertiveToolsFragment.newInstance());
-                break;
-            case "Info" :
-                    changeFragment(InfoFragment.newInstance());
-                break;
-            case "Stories":
-                    changeFragment(StoryMenuFragment.newInstance());
-                break;
-            case "Parents":
-                    changeFragment(ParentsFragment.newInstance());
-                break;
+        /*
+        Check to see if the Credits fragment is being displayed,
+        to clear back stack in-case of a jump from to different fragment.
+         */
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainContent);
+        if(fragment instanceof CreditsFragment){
+            getSupportFragmentManager().popBackStack();
         }
+
+        changeFragment(parseFragmentFromString(selectedText));
 
         // Close the drawer
         mDrawerLayout.closeDrawer(mDrawerPane);
     }
-
+    /*
+    Just a method to return the desired fragment based on the fragment's name.
+     */
+    private Fragment parseFragmentFromString(String fragmentName){
+        switch (fragmentName){
+            case "Home" :
+                return HomeFragment.newInstance();
+            case "Contact" :
+                return ContactFragment.newInstance();
+            case "Assertive Tools" :
+                return AssertiveToolsFragment.newInstance();
+            case "Info" :
+                return InfoFragment.newInstance();
+            case "Stories":
+                return StoryMenuFragment.newInstance();
+            case "Parents":
+                return ParentsFragment.newInstance();
+        }
+        return null;
+    }
+    /*
+    Method to display a fragment in the main screen of the app
+     */
     private void changeFragment(Fragment fragment){
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.mainContent, fragment).commit();
@@ -121,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
