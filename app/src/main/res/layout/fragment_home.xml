@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/home_bg"
     tools:context=".home.HomeFragment"
     android:fillViewport="true">
@@ -10,48 +10,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical"  >
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="-25dp"
+            android:src="@drawable/home_screen_super_me_logo" />
 
-            <ImageView
-                android:id="@+id/home_page_bg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_page"
-                android:contentDescription="" />
+        <ImageView
+            android:id="@+id/super_me_character"
+            android:src="@drawable/home_screen_super_me_character"
+            android:layout_width="match_parent"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="175dp"/>
-                <Button
-                    android:id="@+id/superme_home_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginRight="75dp"
-                    android:layout_marginLeft="75dp"
-                    android:alpha="0"/>
-
-
-
-            </LinearLayout>
-
-
-
-        </RelativeLayout>
-
+        <ImageView
+            android:src="@drawable/home_screen_insults"
+            android:layout_width="match_parent"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
+            android:layout_marginTop="-25dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -59,40 +43,40 @@
                 android:layout_height="150dp"
                 android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/mad_mocker_home_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/home_mad_mocker_01" />
-
-                <ImageButton
+                <ImageView
                     android:id="@+id/scorpies_home_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
                     android:layout_weight="1"
-                    android:background="@drawable/home_scorpies_01"/>
+                    android:src="@drawable/home_scorpies_03"/>
 
-                <ImageButton
-                    android:id="@+id/viral_home_button"
+                <ImageView
+                    android:id="@+id/mad_mocker_home_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
                     android:layout_weight="1"
-                    android:background="@drawable/home_viral_01"/>
+                    android:src="@drawable/home_mad_mocker_04" />
+
+                <ImageView
+                    android:id="@+id/viral_home_button"
+                    android:layout_width="wrap_content"
+                    android:scaleType="fitXY"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:src="@drawable/home_viral_04"/>
 
             </LinearLayout>
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/bull_basher_home_button"
                 android:layout_width="match_parent"
+                android:scaleType="fitXY"
                 android:layout_height="250dp"
-                android:background="@drawable/home_bull_basher_01" />
-
+                android:src="@drawable/home_bull_basher_04" />
 
         </LinearLayout>
-
-
     </LinearLayout>
-
-
 </ScrollView>

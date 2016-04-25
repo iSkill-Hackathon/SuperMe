@@ -2,10 +2,8 @@ package ie.mylifesolutions.superme.home;
 
 
 import android.app.Dialog;
-import android.app.PendingIntent;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -14,8 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -23,11 +23,8 @@ import ie.mylifesolutions.superme.R;
 
 
 public class HomeFragment extends Fragment {
-    AnimationDrawable animationDrawable01;
-    AnimationDrawable animationDrawable02;
-    AnimationDrawable animationDrawable03;
-    AnimationDrawable animationDrawable04;
-    AnimationDrawable animationDrawable05;
+
+    Dialog builder;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -44,36 +41,22 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ImageView storyImage = (ImageView) view.findViewById(R.id.home_page_bg);
-        ImageButton bullBasherButton = (ImageButton) view.findViewById(R.id.bull_basher_home_button);
-        ImageButton madMockerButton = (ImageButton) view.findViewById(R.id.mad_mocker_home_button);
-        ImageButton scorpiesButton = (ImageButton) view.findViewById(R.id.scorpies_home_button);
-        ImageButton viralButton = (ImageButton) view.findViewById(R.id.viral_home_button);
-        Button superMeButton = (Button) view.findViewById(R.id.superme_home_button);
-
-        storyImage.setBackgroundResource(R.drawable.home_page);
-        bullBasherButton.setBackgroundResource(R.drawable.bull_basher);
-        madMockerButton.setBackgroundResource(R.drawable.mad_mocker);
-        scorpiesButton.setBackgroundResource(R.drawable.scorpies);
-        viralButton.setBackgroundResource(R.drawable.viral);
-
-        AnimationDrawable animationDrawable01 = (AnimationDrawable) storyImage.getBackground();
-        AnimationDrawable animationDrawable02 = (AnimationDrawable) bullBasherButton.getBackground();
-        AnimationDrawable animationDrawable03 = (AnimationDrawable) madMockerButton.getBackground();
-        AnimationDrawable animationDrawable04 = (AnimationDrawable) scorpiesButton.getBackground();
-        AnimationDrawable animationDrawable05 = (AnimationDrawable) viralButton.getBackground();
-        animationDrawable01.start();
-        animationDrawable02.start();
-        animationDrawable03.start();
-        animationDrawable04.start();
-        animationDrawable05.start();
+        ImageView superMeButton = (ImageView) view.findViewById(R.id.super_me_character);
+        ImageView bullBasherButton = (ImageView) view.findViewById(R.id.bull_basher_home_button);
+        ImageView madMockerButton = (ImageView) view.findViewById(R.id.mad_mocker_home_button);
+        ImageView scorpiesButton = (ImageView) view.findViewById(R.id.scorpies_home_button);
+        ImageView viralButton = (ImageView) view.findViewById(R.id.viral_home_button);
 
         bullBasherButton.setOnClickListener(buttonListener);
+        bullBasherButton.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.expand_large));
         madMockerButton.setOnClickListener(buttonListener);
+        madMockerButton.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.wobble));
         scorpiesButton.setOnClickListener(buttonListener);
+        scorpiesButton.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.expand_small));
         viralButton.setOnClickListener(buttonListener);
+        viralButton.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.expand_small));
         superMeButton.setOnClickListener(buttonListener);
-
+        superMeButton.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.superme));
 
         return view;
     }
@@ -98,14 +81,14 @@ public class HomeFragment extends Fragment {
                 case R.id.viral_home_button:
                     showImage(R.drawable.viral_info_popup);
                     break;
-                case R.id.superme_home_button:
+                case R.id.super_me_character:
                     showImage(R.drawable.superme_info_popup);
                     break;
             }
         }
     };
     public void showImage(int id) {
-        Dialog builder = new Dialog(getContext()){
+        builder = new Dialog(getContext()){
             @Override
             public boolean onTouchEvent(MotionEvent event){
                 this.dismiss();
@@ -119,7 +102,7 @@ public class HomeFragment extends Fragment {
         builder.addContentView(imageView, new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
+        builder.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         builder.show();
     }
-
 }
