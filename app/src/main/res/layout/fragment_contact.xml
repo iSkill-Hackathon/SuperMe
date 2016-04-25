@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,7 +9,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.myfirstproject.MainActivity1"
     android:weightSum="1"
     android:background="@drawable/contact_page_background">
 
@@ -18,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/subjectText"
-        android:text="Subject"
+        android:hint="@string/email_subject_hint"
         android:background="@layout/contact_page_borders"
         android:layout_weight="0.04"
         android:padding="10dp"
@@ -38,7 +36,7 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        android:text="Message"
+        android:hint="@string/email_body_hint"
         android:background="@layout/contact_page_borders"/>
 
     <ImageButton
@@ -47,7 +45,6 @@
         android:id="@+id/sendButton"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/contact_page_envelope"
-        android:onClick="send"
         android:layout_weight="0.05" />
 </LinearLayout>
 

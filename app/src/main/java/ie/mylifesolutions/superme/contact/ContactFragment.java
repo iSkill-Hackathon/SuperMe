@@ -19,9 +19,7 @@ public class ContactFragment extends Fragment {
     private EditText mMessage;
 
     public static ContactFragment newInstance() {
-        ContactFragment fragment = new ContactFragment();
-
-        return fragment;
+        return new ContactFragment();
     }
 
     @Override
@@ -51,13 +49,13 @@ public class ContactFragment extends Fragment {
 
     public void sendContact(View view){
 
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"vitalij.rudzinskas@gmail.com"});
-        i.putExtra(Intent.EXTRA_SUBJECT, mSubject.getText());
-        i.putExtra(Intent.EXTRA_TEXT, mMessage.getText());
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/html");
+        intent.putExtra(Intent.EXTRA_EMAIL, "info@mylifesolutions.ie");
+        intent.putExtra(Intent.EXTRA_SUBJECT, mSubject.getText().toString());
+        intent.putExtra(Intent.EXTRA_TEXT, mMessage.getText().toString());
         try {
-            startActivity(Intent.createChooser(i, "Send mail..."));
+            startActivity(Intent.createChooser(intent, "Send Email"));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
