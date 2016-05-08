@@ -50,12 +50,17 @@
         android:hint="@string/email_body_hint"
         android:background="@layout/contact_page_borders"/>
 
-    <ImageButton
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <Button
         android:layout_width="127dp"
         android:layout_height="wrap_content"
+        android:text="@string/email_send"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:id="@+id/sendButton"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/contact_page_envelope"
         android:layout_weight="0.05" />
 
 

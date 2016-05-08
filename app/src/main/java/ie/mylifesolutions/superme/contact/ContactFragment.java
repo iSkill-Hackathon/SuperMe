@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -43,7 +44,7 @@ public class ContactFragment extends Fragment {
         TextView textView = (TextView) view.findViewById(R.id.contact_page_text);
         TextViewStyler.populateTextView(textView, textView.getText().toString(), TextViewStyler.TEXT_COLOR_BLUE, new String[]{"MyLife"}, TextViewStyler.TEXT_COLOR_GREEN, type);
 
-        ImageButton sendButton = (ImageButton) view.findViewById(R.id.sendButton);
+        Button sendButton = (Button) view.findViewById(R.id.sendButton);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

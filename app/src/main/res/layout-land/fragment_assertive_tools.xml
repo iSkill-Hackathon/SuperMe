@@ -7,13 +7,13 @@
     android:columnCount="3"
     android:rowCount="2"
     android:gravity="center"
-    android:background="@drawable/splatter_background"
+    android:background="@drawable/splatter_background_land"
 
     tools:context="ie.mylifesolutions.superme.tools.AssertiveToolsFragment">
 
     <ImageView
 
-        android:src="@drawable/logo_super_tools"
+        android:src="@drawable/logo_super_tools_land"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
