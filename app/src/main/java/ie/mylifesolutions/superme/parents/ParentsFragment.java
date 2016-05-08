@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -26,7 +27,7 @@ import ie.mylifesolutions.superme.utils.TextViewStyler;
 
 public class ParentsFragment extends Fragment {
 
-    private String[] phrases = {"\"SuperMe\"", "SuperMe", "SuperMiss", "SuperTools", "www.mylifesolutions.ie", "www.kidscape.org.uk"};
+    private String[] phrases = {"\"SuperMe\"", "SuperMe", "SuperMiss", "SuperTools"};
 
     public ParentsFragment() {
         // Required empty public constructor
@@ -50,31 +51,20 @@ public class ParentsFragment extends Fragment {
         textViews.add((TextView) view.findViewById(R.id.parents_text_3));
         textViews.add((TextView) view.findViewById(R.id.parents_text_4));
         textViews.add((TextView) view.findViewById(R.id.parents_text_5));
+        textViews.add((TextView) view.findViewById(R.id.parents_text_7));
+
 
         for(TextView textView : textViews){
             TextViewStyler.populateTextView(textView, textView.getText().toString(), TextViewStyler.TEXT_COLOR_BLUE, phrases, TextViewStyler.TEXT_COLOR_GREEN, type);
         }
 
+        ((TextView) view.findViewById(R.id.parents_text_6)).setMovementMethod(LinkMovementMethod.getInstance());
+        ((TextView) view.findViewById(R.id.parents_text_6)).setText(Html.fromHtml(getResources().getString(R.string.parents_screen_text_6)));
+
+        ((TextView) view.findViewById(R.id.parents_text_8)).setMovementMethod(LinkMovementMethod.getInstance());
+        ((TextView) view.findViewById(R.id.parents_text_8)).setText(Html.fromHtml(getResources().getString(R.string.parents_screen_text_8)));
+
         return view;
     }
 
 }
-
-/*
-    Code for testing the damn clickable link:
-    Gave up for now but will return!
-
-//                    if(phrase.contains("www.")){
-//                        textSpan.setSpan(new ClickableSpan() {
-//                            @Override
-//                            public void onClick(View widget) {
-//                                Log.d("TEXT CLICKED", ((TextView) widget).getText().toString());
-//                            }
-//                        }, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//                        Log.d("TEXT", "Start : " + start + ", End : " + end);
-//                    }else{
-
-//                    }
-
-//        targetView.setMovementMethod(LinkMovementMethod.getInstance());
- */

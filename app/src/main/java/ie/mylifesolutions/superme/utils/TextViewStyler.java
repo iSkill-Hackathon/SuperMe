@@ -2,7 +2,7 @@ package ie.mylifesolutions.superme.utils;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.widget.TextView;
@@ -25,7 +25,7 @@ public class TextViewStyler {
     public static int TEXT_COLOR_BLUE = Color.BLUE;
 
     public static void populateTextView(TextView targetView, String text, int textColor, String[] standOutPhrases, int textColorStandOut, Typeface type){
-        SpannableString textSpan = new SpannableString(text);
+        SpannableStringBuilder textSpan = new SpannableStringBuilder(text);
         textSpan.setSpan(new ForegroundColorSpan(textColor), 0, text.length(), 0);
         textSpan.setSpan(new ShadowSpan(shadowRadius, shadowDX, shadowDY, shadowColorLight), 0, text.length(), 0);
 
@@ -38,9 +38,10 @@ public class TextViewStyler {
                     textSpan.setSpan(new RelativeSizeSpan(textSizeIncrease), start, end, 0);
                     textSpan.setSpan(new ForegroundColorSpan(textColorStandOut), start, end, 0);
                 }
-            }
-        }
 
+            }
+
+        }
         targetView.setText(textSpan, TextView.BufferType.SPANNABLE);
         targetView.setTypeface(type);
     }
