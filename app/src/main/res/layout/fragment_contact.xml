@@ -17,6 +17,7 @@
         android:id="@+id/contact_page_text"
         android:text="@string/contact_page_text"
         android:padding="10dp"
+        android:gravity="center"
         android:paddingBottom="30dp"
         android:textSize="20sp"
         android:layout_width="wrap_content"
