@@ -35,6 +35,8 @@
 
     <string name="button_credits_text">Credits</string>
 
+    <string name="contact_page_text">Please get in touch with the MyLife team if you have any feedback.</string>
+
     <string name="credits_screen_text_1">\"SUPER ME\"\nis brought to you by MyLife Solutions &amp; The Irish Youth Foundation</string>
     <string name="credits_screen_creative_text">All creative brilliance is thanks to Kizzlefish at Cheatnotes Creative</string>
     <string name="credits_screen_technology_text">All app technology brilliance is brought to you by the learners at iSkill Training Ltd.</string>

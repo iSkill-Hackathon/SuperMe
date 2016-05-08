@@ -1,6 +1,7 @@
 package ie.mylifesolutions.superme.contact;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ie.mylifesolutions.superme.R;
+import ie.mylifesolutions.superme.utils.TextViewStyler;
 
 
 public class ContactFragment extends Fragment {
@@ -35,6 +38,10 @@ public class ContactFragment extends Fragment {
 
         mSubject = (EditText) view.findViewById(R.id.subjectText);
         mMessage = (EditText) view.findViewById(R.id.messageText);
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/design.graffiti.comicsansms.ttf");
+
+        TextView textView = (TextView) view.findViewById(R.id.contact_page_text);
+        TextViewStyler.populateTextView(textView, textView.getText().toString(), TextViewStyler.TEXT_COLOR_BLUE, new String[]{"MyLife"}, TextViewStyler.TEXT_COLOR_GREEN, type);
 
         ImageButton sendButton = (ImageButton) view.findViewById(R.id.sendButton);
         sendButton.setOnClickListener(new View.OnClickListener() {
