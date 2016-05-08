@@ -1,5 +1,7 @@
 package ie.mylifesolutions.superme;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -7,11 +9,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private RelativeLayout mDrawerPane;
+    private TextView titleTextView;
 
     private int[] icon_ids = {R.drawable.icon_home, R.drawable.icon_stories, R.drawable.icon_assertive_tools, R.drawable.icon_contact, R.drawable.icon_info, R.drawable.icon_parents};
 
@@ -41,9 +46,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.tool_eye_contact);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+            if(titleTextView == null){
+                LayoutInflater inflater = LayoutInflater.from(this);
+                View titleView = inflater.inflate(R.layout.titleview, null);
+                titleTextView = (TextView) titleView.findViewById(R.id.title);
+                titleTextView.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/design.graffiti.comicsansms.ttf"));
+                titleTextView.setTextColor(Color.WHITE);
+
+                getSupportActionBar().setCustomView(titleView);
+            }
         }
         String[] menuItems = getResources().getStringArray(R.array.menu_items);
 
@@ -82,14 +100,20 @@ public class MainActivity extends AppCompatActivity {
         };
 
         /*
+        Changing the font of the title bar
+         */
+
+        /*
         Check to see if there was already a fragment displayed and redisplay it if so,
         this simple solves the issue of orientation changes causing the app to reset to home screen.
          */
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainContent);
         if(fragment == null){
             changeFragment(HomeFragment.newInstance());
+            titleTextView.setText("Home");
         }else{
             changeFragment(fragment);
+            titleTextView.setText(parseStringFromFragment(fragment));
         }
 
     }
@@ -99,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     private void selectItemFromDrawer(int position) {
         mDrawerList.setItemChecked(position, true);
         String selectedText = mMenuItems.get(position).getTitle();
-        setTitle(selectedText);
+        titleTextView.setText(selectedText);
 
         /*
         Check to see if the Credits fragment is being displayed,
@@ -134,6 +158,26 @@ public class MainActivity extends AppCompatActivity {
                 return ParentsFragment.newInstance();
         }
         return null;
+    }
+    /*
+    Just a method to return the string associated with the fragment.
+    Bit of a quick fix but just to keep the title available upon orientation changes.
+     */
+    private String parseStringFromFragment(Fragment fragment){
+       if(fragment instanceof AssertiveToolsFragment){
+           return "Assertive Tools";
+       }else if(fragment instanceof ContactFragment){
+           return "Contact";
+       }else if(fragment instanceof InfoFragment){
+           return "Info";
+       }else if(fragment instanceof StoryMenuFragment){
+           return "Stories";
+       }else if(fragment instanceof ParentsFragment){
+           return "Parents";
+       }else{
+           return "Home";
+       }
+
     }
     /*
     Method to display a fragment in the main screen of the app
