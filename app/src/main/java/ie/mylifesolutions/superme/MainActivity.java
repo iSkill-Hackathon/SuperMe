@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ import ie.mylifesolutions.superme.menu.DrawerListAdapter;
 import ie.mylifesolutions.superme.parents.ParentsFragment;
 import ie.mylifesolutions.superme.story.StoryMenuFragment;
 import ie.mylifesolutions.superme.tools.AssertiveToolsFragment;
+import ie.mylifesolutions.superme.utils.TextViewStyler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,12 +55,15 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        /*
+        Changing the font of the title bar
+         */
             if(titleTextView == null){
                 LayoutInflater inflater = LayoutInflater.from(this);
                 View titleView = inflater.inflate(R.layout.titleview, null);
                 titleTextView = (TextView) titleView.findViewById(R.id.title);
                 titleTextView.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/design.graffiti.comicsansms.ttf"));
-                titleTextView.setTextColor(Color.WHITE);
+                titleTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.menuTextColor));
 
                 getSupportActionBar().setCustomView(titleView);
             }
@@ -99,9 +104,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        /*
-        Changing the font of the title bar
-         */
 
         /*
         Check to see if there was already a fragment displayed and redisplay it if so,
@@ -116,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
             titleTextView.setText(parseStringFromFragment(fragment));
         }
 
+        Typeface typeFace = Typeface.createFromAsset(this.getAssets(), "fonts/design.graffiti.comicsansms.ttf");
+        TextViewStyler.populateTextView(titleTextView, titleTextView.getText().toString(), ContextCompat.getColor(getApplicationContext(), R.color.menuTextColor), null, Color.WHITE, typeFace);
+
+
     }
     /*
     Method to change to the fragment that the user selected from the menu
@@ -124,6 +130,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList.setItemChecked(position, true);
         String selectedText = mMenuItems.get(position).getTitle();
         titleTextView.setText(selectedText);
+        Typeface typeFace = Typeface.createFromAsset(this.getAssets(), "fonts/design.graffiti.comicsansms.ttf");
+        TextViewStyler.populateTextView(titleTextView, titleTextView.getText().toString(), ContextCompat.getColor(getApplicationContext(), R.color.menuTextColor), null, Color.WHITE, typeFace);
+
 
         /*
         Check to see if the Credits fragment is being displayed,
